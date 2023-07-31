@@ -5,7 +5,7 @@ ENV PATH /home/node/app/node_modules/.bin:$PATH
 WORKDIR /home/node/app
 COPY package.json yarn.lock ./
 USER node
-RUN yarn config set network-timeout 600000 -g && yarn install --production
+RUN yarn install --production
 COPY --chown=node:node . .
 EXPOSE 8080
 CMD [ "node", "server.js" ]
